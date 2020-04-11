@@ -488,9 +488,9 @@ ${h_\theta}\left( x \right)={\theta_{0}}+{\theta_{1}}{x_{1}}+{\theta_{2}}{x_{2}^
 
 正则化线性回归的代价函数为：
 
-$J\left( \theta  \right)=\frac{1}{2m}\sum\limits_{i=1}^{m}{[({{({h_\theta}({{x}^{(i)}})-{{y}^{(i)}})}^{2}}+\lambda \sum\limits_{j=1}^{n}{\theta _{j}^{2}})]}$
+$J\left( \theta  \right)=\frac{1}{2m}[\sum\limits_{i=1}^{m}{({{({h_\theta}({{x}^{(i)}})-{{y}^{(i)}})}^{2}}+\lambda \sum\limits_{j=1}^{n}{\theta _{j}^{2}})]}$
 
-如果我们要使用梯度下降法令这个代价函数最小化，因为我们未对$\theta_0​$进行正则化，所以梯度下降算法将分两种情形：
+如果我们要使用梯度下降法令这个代价函数最小化，因为我们未对$\theta_0$进行正则化，所以梯度下降算法将分两种情形：
 
 $Repeat$  $until$  $convergence${
 
@@ -507,7 +507,7 @@ $Repeat$  $until$  $convergence${
 
 对上面的算法中$ j=1,2,...,n$ 时的更新式子进行调整可得：
 
-${\theta_j}:={\theta_j}(1-a\frac{\lambda }{m})-a\frac{1}{m}\sum\limits_{i=1}^{m}{({h_\theta}({{x}^{(i)}})-{{y}^{(i)}})x_{j}^{\left( i \right)}}​$ 
+${\theta_j}:={\theta_j}(1-a\frac{\lambda }{m})-a\frac{1}{m}\sum\limits_{i=1}^{m}{({h_\theta}({{x}^{(i)}})-{{y}^{(i)}})x_{j}^{\left( i \right)}}$ 
 可以看出，正则化线性回归的梯度下降算法的变化在于，每次都在原有算法更新规则的基础上令$\theta $值减少了一个额外的值。
 
 我们同样也可以利用正规方程来求解正则化线性回归模型，方法如下所示：
@@ -555,11 +555,11 @@ $Repeat$  $until$  $convergence${
 
 ​                                                 }
 
-注：看上去同线性回归一样，但是知道 ${h_\theta}\left( x \right)=g\left( {\theta^T}X \right)​$，所以与线性回归不同。
-**Octave** 中，我们依旧可以用 `fminuc` 函数来求解代价函数最小化的参数，值得注意的是参数${\theta_{0}}​$的更新规则与其他情况不同。
+注：看上去同线性回归一样，但是知道 ${h_\theta}\left( x \right)=g\left( {\theta^T}X \right)$，所以与线性回归不同。
+**Octave** 中，我们依旧可以用 `fminuc` 函数来求解代价函数最小化的参数，值得注意的是参数${\theta_{0}}$的更新规则与其他情况不同。
 注意：
 
-1. 虽然正则化的逻辑回归中的梯度下降和正则化的线性回归中的表达式看起来一样，但由于两者的${h_\theta}\left( x \right)​$不同所以还是有很大差别。
+1. 虽然正则化的逻辑回归中的梯度下降和正则化的线性回归中的表达式看起来一样，但由于两者的${h_\theta}\left( x \right)$不同所以还是有很大差别。
 
 2. ${\theta_{0}}$不参与其中的任何一个正则化。
 
